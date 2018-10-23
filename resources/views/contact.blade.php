@@ -36,42 +36,45 @@ Contact Section Start
 <section id="contact-section">
 <div class="container">
     <div class="row">
+            <!-- se crea un if donde se pregunta si la llave flash existe -->
+            @if(session()->has('flash'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!-- se trae el mensaje de la session flash -->
+                    {{ session()->get('flash') }}
+            </div>
+            @endif
+            <!-- se cierra el if -->
         <div class="col-md-6">
             <div class="block">
-                <h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Contact With Me</h2>
+                <h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">CONTACTA CONMIGO</h2>
                 <p class="subtitle-des wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, ea!
                      consectetur adipisicing elit. Dolore, ea!
                 </p>
                 <div class="contact-form">
-                    <form id="contact-form" method="#" action="#" role="form">
-            
+                <form method="post" action="{{ route('messages') }}" role="form">
+                    <!-- Se agrega un token de validacion, en laravel siempre se debe usar -->
+                    {{ csrf_field() }}
+
                         <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
-                            <input type="text" placeholder="Your Name" class="form-control" name="name" id="name">
+                            <input type="text" placeholder="Nombre" class="form-control" name="name" id="name" required>
                         </div>
                         
                         <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                            <input type="email" placeholder="Your Email" class="form-control" name="email" id="email" >
+                            <input type="email" placeholder="Email" class="form-control" name="email" id="email" required>
                         </div>
                         
                         <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
-                            <input type="text" placeholder="Subject" class="form-control" name="subject" id="subject">
+                            <input type="text" placeholder="Asunto" class="form-control" name="subject" id="subject" required>
                         </div>
                         
                         <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.2s">
-                            <textarea rows="6" placeholder="Message" class="form-control" name="message" id="message"></textarea>    
-                        </div>
-                        
-                        <div id="success" class="success">
-                            Thank you. The Mailman is on His Way :)
-                        </div>
-                        
-                        <div id="error" class="error">
-                            Sorry, don't know what happened. Try later :(
+                            <textarea rows="6" placeholder="Mensaje" class="form-control" name="body" id="message" required></textarea>    
                         </div>
                         
                         <div id="submit" class="wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1.4s">
-                            <input type="submit" id="contact-submit" class="btn btn-default btn-send" value="Send Message">
+                            <input type="submit" class="btn btn-default btn-send" value="Enviar Mensaje">
                         </div>                      
                     </form>
                 </div>
@@ -85,8 +88,7 @@ Contact Section Start
                     
                 </p>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.277552998015!2d90.3678744!3d23.773128800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0ae4adf3cb9%3A0x7f2cf443b764e4a4!2sShishu+Mela!5e0!3m2!1sen!2s!4v1435516022247" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.475234676721!2d-75.50789798571556!3d10.383778069158774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625e76cfcd80f%3A0xd171f835b24529a2!2sUnnamed+Road%2C+Cartagena%2C+Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1540323538240" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

@@ -56,7 +56,7 @@
                     <!-- logo -->
                     <div class="navbar-brand">
                         <a href="{{ route('home') }}" >
-                            <img src="images/logo.png" alt="">
+                            <img src="favicon.ico" alt="" style="width: 30px;">
                         </a>
                     </div>
                     <!-- /logo -->
